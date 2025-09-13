@@ -1,0 +1,49 @@
+const products = [
+  {
+    name: "Empire Classic Sneakers",
+    price: "KES 3,500",
+    image: "images/sneaker1.jpg",
+    category: "shoes"
+  },
+  {
+    name: "Urban Leather Bag",
+    price: "KES 4,200",
+    image: "images/bag1.jpg",
+    category: "bags"
+  },
+  {
+    name: "Snapback Hat",
+    price: "KES 1,500",
+    image: "images/hat1.jpg",
+    category: "hats"
+  }
+];
+<script src="products.js"></script>
+<script>
+  const productGrid = document.querySelector("#product-grid");
+  function showProducts(items) {
+    productGrid.innerHTML = "";
+    items.forEach(p => {
+      const card = `
+        <div class="product-card">
+          <img src="${p.image}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>${p.price}</p>
+          <button onclick="orderNow('${p.name}')">Order on WhatsApp</button>
+        </div>
+      `;
+      productGrid.innerHTML += card;
+    });
+  }
+  function orderNow(productName) {
+    window.open(`https://wa.me/254700000000?text=Hi! I want to order: ${productName}`);
+  }
+  // load all on start
+  showProducts(products);
+</script>
+{
+  name: "Streetwear Hoodie",
+  price: "KES 2,800",
+  image: "images/hoodie1.jpg",
+  category: "clothes"
+}
